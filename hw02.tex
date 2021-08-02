@@ -1,0 +1,276 @@
+\documentclass[a4paper]{article} 
+\usepackage[inline]{enumitem}
+\usepackage{tasks}
+\settasks{label =•}
+\usepackage{enumitem}
+\setenumerate{label = \alph*)}
+\input{head}
+\newcolumntype{Y}[1]{>{\centering\arraybackslash} X{#1}}
+\begin{document}
+
+%-------------------------------
+%	TITLE SECTION
+%-------------------------------
+
+\fancyhead[C]{}
+\hrule \medskip % Upper rule
+\begin{minipage}{0.295\textwidth} 
+\raggedright
+\footnotesize
+Winston Peng \hfill\\   
+50364686 \hfill\\
+wpeng2@buffalo.edu
+\end{minipage}
+\begin{minipage}{0.4\textwidth} 
+\centering 
+\large 
+Homework 2 - Predicates \& Logical Proofs\\ 
+\normalsize 
+Intro To Discrete Structures, 2021\\ 
+\end{minipage}
+\begin{minipage}{0.295\textwidth} 
+\raggedleft
+\today\hfill\\
+\end{minipage}
+\medskip\hrule 
+\bigskip
+
+\section{Translate English To Math - Predicates}
+\large Predicates:
+\normalsize
+\begin{itemize}
+    \item \textbf{Sitting(x, y):} x is sitting on y
+    \item \textbf{Free(y):} y is free
+    \item \textbf{Top(y, z):} y is on top of z
+    \item \textbf{Brown(y):} y is brown
+    \item \textbf{Black(y):} y is black
+\end{itemize}
+\large Domains:
+\normalsize
+\begin{itemize}
+    \item domain of x: {a group of people}
+    \item domain of y and z: {a set of deck boxes}
+\end{itemize}
+\large Problems: \\
+\smallskip
+\normalsize
+\underline{Note}: B is a constant. Top(y, B): y is on top of B.
+\begin{enumerate}
+    \item \textbf{Everyone is sitting on some box.} $\forall x \:\exists y, \: Sitting(x, y)$
+    \item \textbf{Every box that is free has nobody sitting on it.} $\forall y \; \neg \exists x, \: Sitting(x, Free(y))$
+    \item \textbf{Every box that is brown is free.} $\forall y, \: Brown(y)) \implies Free(y)$
+    \item \textbf{Every box that is not black and on top of box B is brown.} $\forall y, \: \neg(Black(y) \land Top(y, B)) \implies Brown(y)$
+    \item \textbf{There is a box that is black and not free.} $\exists y, \: Black(y) \land \neg Free(y) $
+\end{enumerate}
+
+\bigskip %----------------------------------------
+
+\section{Translate Math To English - Predicates}
+\large Predicates:
+\normalsize
+\begin{itemize}
+    \item \textbf{Edge(x, y):} x is connected to y
+    \item \textbf{Color(x, z):} x has color z
+\end{itemize}
+\large Domains:
+\normalsize
+\begin{itemize}
+    \item domain of x and y: {all nodes in a graph},
+    \item domain of z: {RED, GREEN, BLUE, YELLOW},
+\end{itemize}
+\large Problems:
+\normalsize
+\boldmath
+\begin{enumerate}
+    \item $\forall x \, \exists y \; Edge(x, y)$ \\
+    All nodes in the graph are connected to at least one node in the graph.
+    \item $\forall z \, \exists x \; Color(x, z)$ \\
+    A node in the graph is RED, GREEN, BLUE, and YELLOW.
+    \item $\forall x \forall y \forall z \: (Edge(x, y) \land Color(x, z) \implies \neg Color(y, z))$ \\
+    Every box that is RED, GREEN, BLUE, and YELLOW is connected to another box. It is not connected to a box that is RED, GREEN, BLUE, and, YELLOW
+    \item $\neg \forall x \; Color(x, YELLOW)$ \\
+    Not every node is yellow.
+    \item $\forall x \, \exists y \; (Edge(x, y) \land Color(x, BLUE) \implies Color(y, RED) \lor Color(y, GREEN))$ \\
+    Every blue node in the graph is connected to a node that is either red or green.
+\end{enumerate}
+\unboldmath
+
+\bigskip %------------------------------------
+
+\section{Negate Given Statements (Quantifier Negation)}
+\begin{enumerate}
+    \item \boldmath $\exists x \; (P(x) \lor Q(x))$ \unboldmath
+    
+    $\neg(\exists x \; (P(x) \lor Q(x)))$ \\
+    $\forall x \; \neg (P(x) \lor Q(x))$ \\
+    $\forall x \; \neg P(x) \land \neg Q(x)$
+    
+    \item \boldmath $\forall x \, \exists y \; (P(x) \lor Q(y))$ \unboldmath
+    
+    $\neg(\forall x \, \exists y \; (P(x) \lor Q(y)))$ \\
+    $\exists x \, \forall y \; \neg (P(x) \lor Q(y))$ \\
+    $\exists x \, \forall y \; \neg P(x) \land \neg Q(y)$ 
+    
+    \item \boldmath $\exists x \; (P(x) \land \forall y (P(y) \implies Q(y)))$ \unboldmath 
+    
+    $\neg (\exists x \; (P(x) \land \forall y (P(y) \implies Q(y))))$ \\
+    $\forall x \; \neg (P(x) \land \forall y (P(y) \implies Q(y)))$ \\
+    $\forall x \; \neg P(x) \lor \neg(\forall y) \neg (P(y) \implies Q(y))$ \\
+    $\forall x \; \neg P(x) \lor \exists y \, P(y) \land \neg Q(y)$
+\end{enumerate}
+
+\bigskip %------------------------------------------
+
+\section{Prove With Logical Equivalence Laws (Math)}
+% \begin{center}
+% \begin{tabularx}{0.8\textwidth}{X X X X}
+% % \begin{enumerate}
+%     \mutlicolumn{2}{c}{$p \implies q$} & \mutlicolumn{2}{X}{$\neg p \land q$} \\
+%     \multicolumn{2}{X}{$q \implies r$} & $\neg(p \land r) \implies s$\\
+%     $\neg r$ & $r \implies p$ \\
+%     % \hline & \hline \\
+%     $\therefore \neg p$ & $\therefore s$
+% % \end{enumerate}
+% \end{tabularx}
+% \end{center}
+\begin{enumerate}
+\boldmath
+    \item  $p \implies q$ \\
+    $q \implies r$ \\
+    $\neg r$ \\
+    \begin{tabularx}{0.1\textwidth}{X}
+        \hline
+    \end{tabularx}\\
+    $\therefore \neg p$
+\unboldmath
+\smallskip
+
+\begin{tabularx}{0.6\textwidth}{X X}
+\toprule
+1) $p \implies q$ & Hypothesis\\
+2) $q \implies r$ & Hypothesis\\
+3) $\neg r$ & Hypothesis\\
+4) $p \implies r$ & Hypothetical syllogism (1, 2)\\
+5) $\neg p$ & Modus tollens (3, 4)\\
+\end{tabularx}
+
+\boldmath
+    \item $\neg p \land q$ \\
+    $\neg(p \land r) \implies s$ \\
+    $r \implies p$ \\
+    \begin{tabularx}{0.1\textwidth}{X}
+        \hline
+    \end{tabularx}\\
+    $\therefore s$
+\unboldmath
+
+\smallskip
+
+\begin{tabularx}{0.6\textwidth}{X X}
+\toprule
+1) $\neg p \land q$ & Hypothesis\\
+2) $\neg(p \land r) \implies s$ & Hypothesis\\
+3) $r \implies p$ & Hypothesis\\
+% 4) $p \implies q$ & Conditional\\
+% 5) $q$ & Modus ponens (4) \\
+4) $\neg p$ & Simplification (1) \\
+5) $\neg r$ & Modus tollens (4, 3) \\
+6) $\neg \neg(p \lor r) \lor s$ & Conditional \\
+7) $(p \lor r) \lor s$ & Double Negation Law \\
+8) $s$ & Disjunctive Syllogism (7, 4, 5)
+\end{tabularx}
+\end{enumerate}
+
+\bigskip %-------------------------------------------------------
+
+\section{Prove Or Disprove With Logical Equivalence Laws (English)}
+\begin{center}
+\begin{tabularx}{0.8\textwidth}{|X|}
+\hline
+If it is not windy or not cloudy, then we will visit the nearby town and do shopping \\
+If we visit the nearby town, then we'll dine at the restaurant \\
+we did not dine at the restaurant. \\ [1ex]
+
+\toprule \\
+
+$\therefore$ It was cloudy \\
+\hline
+\end{tabularx}
+\end{center}
+
+\begin{itemize}
+    \item p: It is windy 
+    \item q: It is cloudy 
+    \item r: Visit the nearby town 
+    \item s: Do shopping 
+    \item t: Dine at restaurant 
+\end{itemize}
+
+\begin{tabularx}{0.6\textwidth}{X X}
+\toprule \\
+1) $(\neg p \lor \neg q) \implies (r \land s)$ & Hypothesis \\
+2) $r \implies t$ & Hypothesis \\
+3) $\neg t$ & Hypothesis \\
+4) $\neg r$ & Moudus tollens (3, 2) \\
+5) $(\neg p \lor \neg q) \implies F$ & Simplification (1) \\
+6) $\neg (\neg p \lor \neg q)$ & Modus tollens (5) \\
+7) $p \land q$ & DeMorgan's Law \\
+8) $p$ & Simplification 
+\end{tabularx}
+
+\bigskip %----------------------------
+
+\section{Direct Proof}
+\boldmath
+\begin{tabularx}{1.0\textwidth}{|X|}
+\hline
+Prove that \textbf{If x is an even integer, then $x^2 - 6x + 5$ is odd} \\
+\hline
+\end{tabularx}
+\unboldmath
+\begin{itemize}
+    \item Decomposition of statement to $P(x) \implies Q(x)$
+    \begin{itemize}
+        \item The domain of $x$ is all integers.
+        \item $P(x)$: $x$ is an even integer
+        \item $Q(x)$: $x^2 - 6x + 5$ is odd.
+    \end{itemize}
+\end{itemize}
+\smallskip
+
+\textbf{\underline{Proof}:} Assume $x$ is an even integer. \\
+Then exists an integer $k$ such that $x = 2k$.  \\
+Hence: $(2k)^2 - 6x + 5$ + $4k^2 - 6(2k) + 5$ $2(2)k^2 - 6 * 2k + 5$. \\
+Since $k$ is an integer, $4k^2 - 6(2k) + 5$ $2(2)k^2 - 6 * 2k + 5$ is also an integer (call it $j$). \\
+So $n^2 - 6x + 5$ has the form $2j + 5$.
+Therefore, $n^2 -6x + 5$ is an odd integer. 
+% As multiplying anything by $2$ results in 2, everything is even, until you add $5$, as $even + odd = odd$, $x^2 - 6x + 5$ is odd.
+
+\bigskip %--------------------------------------
+
+\section{Prove By Contraposition}
+\boldmath
+\begin{tabularx}{1.0\textwidth}{|X|}
+\hline
+Prove that \textbf{If $x$ is an integer and $x^2$ is even, then $x$ is even} \\
+\hline
+\end{tabularx}
+\unboldmath
+\begin{itemize}
+    \item Decomposition of statement to $P(x) \implies Q(x)$
+    \begin{itemize}
+        \item The domain of $x$ is all integers.
+        \item $P(x)$: $x^2$ is an even integer
+        \item $Q(x)$: $x$ is even.
+    \end{itemize}
+\end{itemize}
+
+\textbf{\underline{Proof}:} Assume $x$ is not an even integer. So $x$ is odd. \\
+Then exists an integer $k$ such that $x = 2k + 1$. \\
+Hence: $(2k + 1)^{2} = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ \\
+Since $k$ is an integer, $2(2k^2 + 2k) + 1$ is also an integer (call it $j$) \\
+So, $n^2$ has the form $2j + 1$ \\
+Therefore, $x^2$ is an odd integer, so $x^2$ is not an odd integer. \\
+Thus, $\neg Q(n) \implies \neg P(n)$. \\
+Then, $P(n) \implies Q(n)$ is also true. \\
+\end{document}

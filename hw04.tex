@@ -1,0 +1,170 @@
+\documentclass[a4paper]{article} 
+\usepackage[inline]{enumitem}
+\input{head}
+\begin{document}
+
+%-------------------------------
+%	TITLE SECTION
+%-------------------------------
+
+\fancyhead[C]{}
+\hrule \medskip % Upper rule
+\begin{minipage}{0.295\textwidth} 
+\raggedright
+\footnotesize
+Winston Peng \hfill\\   
+50364686 \hfill\\
+wpeng2@buffalo.edu
+\end{minipage}
+\begin{minipage}{0.4\textwidth} 
+\centering 
+\large 
+Homework 4\\ 
+\normalsize 
+Intro To Discrete Structures, 2021\\ 
+\end{minipage}
+\begin{minipage}{0.295\textwidth} 
+\raggedleft
+\today\hfill\\
+\end{minipage}
+\medskip\hrule 
+\bigskip %-------------------------------------------------
+
+\section{Equivalence Relation or Partial Order (15pts = 3*5)}
+\begin{enumerate}
+    \item \boldmath \textbf{Relation $R$ is defined on $\mathbb{Z}^+ \times \mathbb{Z}^+$ where a $R$ b if a$|$b (ie., a divides b).} \unboldmath\\
+    It is reflexive as division is a reflexive statement, as an integer is always divisible by itself, and it is transitive as when a number is divisible by another number, it is divisible by all of that number's factors.
+    % $R$ is reflexive\\
+    % Let a $\in \mathbb{Z}$ \\
+    % a $\mod$ a = $0$
+    
+    % $T$ is transitive\\
+    \begin{enumerate}
+        \item It is not an equivalence relation as the relation is not symmetrical. If the numerator and denominator are different, the relationship becomes entirely different when the function gets flipped.
+        \item It is a partial order relation, as reciprocals of fractions will only be equal to each other when the numerator and denominator are the same. Therefore, the relation is anti-symmetrical, and it is a partial order relation.
+    \end{enumerate}
+    
+    \item \boldmath \textbf{Let S be a fixed subset of the set U and $R$ be a relation. For A, B $\subseteq$ U, A $R$ B if A $\cap$ S = B $\cap$ S.} \unboldmath \\
+    It is reflexive as the relationship is an intersection, and the intersection of set A and set B is going to be equal to the intersection of set A and set B, as intersections stay the same when the same two sets are used. It is transitive because the intersection must remain the same. Though the actual sets might not be the same, the intersection will always remain the same, and therefore the relation becomes transitive.
+    %It is not transitive however, as intersections only account for overlap in the two sets. Therefore, two wildly different sets can have the same intersection set when compared to a set, and therefore they will not have the same intersection.
+    \begin{enumerate}
+        \item It is an equivalence relation. It is symmetric as A $\cap$ S = B $\cap$ S is symmetrical, due to the equivalence symbol being used making the relation commutative.
+        \item It is not a partial order relation, as it is not anti-symmetric. Intersections being equal do not necessarily mean that the two variables are equal.
+    \end{enumerate}
+    
+    \item \boldmath \textbf{Let $R$ be a relation on $\mathbb{Z}$ and x $R$ y if x + y is odd.} \unboldmath \\
+    It is not reflexive since any number plus itself becomes even, due to parity dictating that x + y can only be odd if one is even and one is odd. As a result, x + x will always be even, the relation would be untrue.
+    \begin{enumerate}
+        \item It is not an equivalence relation since it is not reflexive.
+        \item It is not a partial order relation since it is not reflexive.
+    \end{enumerate}
+    
+    \item \boldmath \textbf{Let $R$ be a relation on $\mathbb{Z}$ and x $R$ y if x - y is even.} \unboldmath \\
+    It is reflexive as x - x is always zero, and as zero is divisible by two. It is transitive as x - y will always be even as long as they have the same parity. As a result, the only options are that in a transitive statement, where x, y, and z are being compared, x, y, and, z will always be the same parity, otherwise the whole relationship would be false.
+    \begin{enumerate}
+        \item It is a equivalence relation since as long as x and y have the same parity, the relationship stays true, no matter what order x and y are in.
+        \item It is not a partial order relation since, it is not asymmetrical since x and y do not need to be equal in order for the relation to be true.
+    \end{enumerate}
+    
+    
+    \item \boldmath \textbf{Let $R$ be a relation on $\mathbb{N} \times \mathbb{N}$ where (a, b) $R$ (c, d) if a$\le$c and b$\ge$d.} \unboldmath \\
+    $R$ is reflexive \\
+    Let a, b $\in$ $\mathbb{N}$ \\
+    Prove (a, b) $R$ (a, b)? \\
+    Since a = a and b = b, then a $\le$ a and b $\le$ b. \\
+    Therefore, (a, b) $R$ (a, b), so $R$ is reflexive.
+    
+    $R$ is transitive \\
+    Let a, b, c, d, e, f $\in$ $\mathbb{N}$ \\
+    Prove (a, b) $R$ (c, d) $\land$ (c, d) $R$ (e, f) $\implies$ (a, b) $R$ (e, f)\\
+    Since a $\le$ c and c $\le$ e, it can be inferred that a $\le$ e, since b $\ge$ d and d $\ge$ f, it can be inferred that b $\ge$ f.
+    Therefore, (a, b) $R$ (e, f), so $R$ is transitive.
+    \begin{enumerate}
+        \item $R$ is not an equivalence relation \\
+        Let a = 3, b = 7, c = 5, d = 4 $\in$ $\mathbb{N}$ \\
+        Prove (a, b) $R$ (c, d) $\land$ (c, d) $R$ (e, f) \\
+        Since 3 $\le$ 5 and 7 $\ge$ 4, (a, b) $R$ (c, d) is true \\
+        Since 5 $\le$ 3 and 4 $\ge$ 7, (c, d) $R$ (a, b) is false \\
+        Therefore, $R$ is not symmetrical, and therefore $R$ is not an equivalence relation.
+        \item $R$ is a partial order \\
+        Let a, b, c, d $\in$ $\mathbb{N}$ \\
+        Prove (a, b) $R$ (c, d) $\land$ (c, d) $R$ (a, b) $\implies$ (a, b) = (c, d) \\
+        Since a, b is not symmetrical, (a, b) $R$ (c, d) $\land$ (c, d) $R$ (a, b) is not always true. \\
+        Since a $\le$ c and c $\le$ a is always true if a = c, and b $\ge$ d and d $\ge$ b is always true if b = d \\
+        Therefore, $R$ is anti-symmetrical, since $R$ is also transitive, and reflexive, $R$ is a partial order.
+    \end{enumerate}
+\end{enumerate}
+
+\bigskip %---------------------------------------------------
+
+\section{Hasse Diagram For Partial Order}
+\textbf{Domain:\{3, 5, 6, 7, 10, 14, 20, 30, 60\}. x $\preceq$ y if x evenly divides y.} \\
+\textbf{Give an example of two elements (in domain) that are incomparable under the given relation} \\
+(7, 6) are incomparable.
+
+\bigskip %---------------------------------------------------
+
+\section{Evaluate Functions as Injective, Surjective, or Invertible}
+\begin{enumerate}
+    \item \boldmath \textbf{Function f: $\mathbb{Z} \times \mathbb{Z} \implies \mathbb{Z}$ is defined as f((a, b)) = 2b - 4a.} \unboldmath \\
+    This statement is injective. \\
+    Let a, b, c, d $\in$ $\mathbb{Z}$ \\
+    Assume f((a, b)) = f((c, d)) \\
+    By definition, f((a, b)) = 2b - 4a, and f((c, d)) = 2d - 4c. \\
+    Then: \[ f((a, b)) = f((c, d)) \]
+    \[2b - 4a = f((c, d)) \]
+    \[2b - 4a = 2d - 4c\]
+    \[b = d, a = c\]
+    Therefore, f((a, b)) = f((c, d)) $\implies$ (a, b) = (c, d).\\
+    Therefore, f is one-to-one.
+    
+    This statement is not surjective. \\
+    Let c = 3 $\in \mathbb{Z}$\\
+    f((1, 3)) = 2(3) - 4(1) = 2, f((1, 4)) = 2(4) - 4(1) = 4 \\
+    Therefore, f cannot equal 3.
+    
+    This statement is invertible, as it is injective, meaning that the $f^-1$ doesn't have one value equaling multiple things.
+    
+    
+    \item \boldmath \textbf{A = \{1, 2, 3\}. Function f: $\mathcal{P}(A) \implies \{0, 1, 2, 3\}$ is defined as f(X) = $|$X$|$ where $|$X$|$ = size of X. For example, $|\{1, 2\}|$ = 2. $\mathcal{P}(A)$ is the power set of A.} \unboldmath \\
+    This statement is not injective. \\
+    $\mathcal {P}(A)$ contains both \{1, 2\} and \{2, 3\}, both of which are equal to 2, under f.
+    
+    This statement is surjective.\\
+    $\mathcal{P}(A)$ has $\{1\}$ which equals 1, has $\{1, 2\}$ which equals 2, and $\{1, 2, 3\}$ which equals 3.
+    
+    This statement is not invertible, as it is not injective. As a result, $f^-1$ is not a function.
+    
+    
+    \item \boldmath \textbf{Function f: $\{0, 1\}^3 \implies \{0, 1\}^3$ is defined by the following rule. For each string s $\in$ $\{0, 1\}^3$, f(s) = f($x_1x_2x_3$) = $x_3x_1x_2$ where $x_1, x_2, x_3 \in$ \{0, 1\}. For example, if $x_1 = a, x_2 = b, x_3 = c$, then f(abc) = cab. Another example: f(011) = 101} \unboldmath \\
+    This statement is injective. \\
+    Let $x_1, x_2, x_3, y_1, y_2, y_3$ $\in \mathbb{Z}$ \\
+    Assume f(x) = f(y) \\
+    $\{x_1, x_2, x_3\} = \{y_1, y_2, y_3\}$
+    $\{x_3, x_1, x_2\} = \{y_3, y_1, y_2\}$
+    All values of x = all values of y.
+    
+    This statement is surjectve.\\
+    Assume f(x) = y \\
+    $\{x_1, x_2, x_3\} = y$
+    $\{x_3, x_1, x_2\} = \{y_1, y_2, y_3\}$
+    Within confines, y = 1 or 0, therefore surjective.
+    
+    Because it is injective, it is invertible.
+\end{enumerate}
+
+\section{Ceiling, Floor, and Modulo}
+\begin{enumerate}
+    \item $\lfloor 6.2 \rfloor \lceil 3.4 \rceil =  6 * 4 = 24$
+    \item $2 \lfloor \pi \rfloor = 2 * 3 = 6$
+    \item $\lfloor a \rfloor = \lceil a \rceil$ for all $a \in \mathbb{R}$. True or False? Give a counter example if false.\\
+    False. $\lfloor 3.4 \rfloor = 3$. $\lceil 3.4 \rceil = 4$
+    
+    \item $\lfloor a \rfloor = \lceil a \rceil - 1$ for all $a \in \mathbb{R} - \mathbb{Z}$. True or false? Give a counter example if false.\\
+    False. $\lfloor 3 \rfloor = 3$. $\lceil 3 \rceil - 1 = 3 - 1 = 2$
+    
+    \item Is 80 congruent for 5 modulo 17? Why, or why not? \\
+    No, because 80 - 5 is not divisible by 17.
+\end{enumerate}
+
+\end{document}

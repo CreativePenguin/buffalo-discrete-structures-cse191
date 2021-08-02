@@ -1,0 +1,288 @@
+\documentclass[a4paper]{article} 
+\usepackage[inline]{enumitem}
+\usepackage{tasks}
+\usepackage{array}
+\usepackage{tabularx}
+\settasks{label =•}
+\usepackage{enumitem}
+\setenumerate{label = \alph*)}
+\newcolumntype{Y}[1]{>{\centering\arraybackslash} X{#1}}
+\input{head}
+\begin{document}
+
+%-------------------------------
+%	TITLE SECTION
+%-------------------------------
+
+\fancyhead[C]{}
+\hrule \medskip % Upper rule
+\begin{minipage}{0.295\textwidth} 
+\raggedright
+\footnotesize
+Winston Peng \hfill\\   
+50364686 \hfill\\
+wpeng2@buffalo.edu
+\end{minipage}
+\begin{minipage}{0.4\textwidth} 
+\centering 
+\large 
+Homework 1\\ 
+\normalsize 
+Intro To Discrete Structures, 2021\\ 
+\end{minipage}
+\begin{minipage}{0.295\textwidth} 
+\raggedleft
+\today\hfill\\
+\end{minipage}
+\medskip\hrule 
+\bigskip
+
+%-------------------------------
+%	CONTENTS
+%-------------------------------
+
+\section{Is or Is Not Proposition?}
+%\blindtext
+%\subsection{}
+%Some equations
+\begin{enumerate}
+    \item\textbf{CSE 115 is a prerequisite of CSE 191.}
+    
+    Proposition. CSE 115 is not a prerequisite of CSE 191.
+    
+    \item\textbf{Do we have class today?}
+    
+    Not a proposition. Questions are not declarative statements.
+    
+    \item\textbf{Amazon is a rainforest.}
+    
+    Proposition. Amazon is not a rainforest.
+    
+    \item\textbf{All integers are even.}
+    
+    Proposition. Not all integers are even.
+    
+    \item\textbf{Give me a glass of water.}
+    
+    Not a proposition. Commands are not declarative statements.
+\end{enumerate}
+% \begin{align*}
+% y &=  \sum\limits_{i,k} m_i \cdot f^k \\
+% x &=  
+% \underset{11}{\underbrace{3 + 8}} + 5 + 7
+% \end{align*}
+
+% \subsection{Second Subtask}
+% \blindtext
+
+\bigskip
+
+%------------------------------------------------
+
+\section{Evaluate Truth Value}
+% \begin{itemize*}
+%     \item p: False (F).
+%     \item q: True (T).
+% \end{itemize*}
+\begin{tasks}(4)
+    \task \textit{p}:False(F).
+    \task \textit{q}:True(T)
+    \task \textit{r}:False(F).
+    \task \textit{s}:True(T).
+\end{tasks}
+\begin{enumerate}
+    \item \boldmath $p \implies q \land r$ \unboldmath
+    
+    $F \implies T \land F$\\
+    $F \implies F$\\
+    $T$
+    \item \boldmath $(p \implies q) \land r$ \unboldmath
+    
+    $(F \implies T) \land F$\\
+    $T \land F$\\
+    $T$
+    \item \boldmath $p \land \neg q \iff q \implies p$ \unboldmath
+    
+    $F \land \neg T \iff T \implies F$\\
+    $F \iff F$\\
+    $T$
+    \item \boldmath $p \land \neg q \oplus r \implies \neg s \lor q$ \unboldmath
+    
+    $F \land \neg T \oplus F \implies \neg T \lor T$\\
+    $F \oplus F \implies T$\\
+    $F \implies T$\\
+    $T$
+    \item \boldmath $(p \land \neg q) \oplus (r \implies (\neg s \lor q))$ \unboldmath
+    
+    $(F \land \neg T) \oplus (F \implies (\neg T \lor T))$\\
+    $F \oplus (F \implies T)$\\
+    $F \oplus T$\\
+    $T$
+\end{enumerate}
+% \subsection{First Subtask}
+
+\bigskip
+
+%------------------------------------------------
+
+\section{Truth Tables}
+% \begin{boldmath} 32 * 15 + p \implies 13 \end{boldmath} \\
+% $32 * 15 + p \implies 13$\\
+\begin{enumerate}
+    \item Make truth table for $p \lor (\neg q \land r)$
+    
+    \begin{center}
+        % \begin{tabular}{ | c | c | c |c| }
+        % \begin{tabular}{ | m{1cm} | m{1cm} | m{1cm} |m{5cm}| }
+        \begin{tabularx}{0.8\textwidth}{ | >{\centering\arraybackslash} X | >{\centering\arraybackslash} X | >{\centering\arraybackslash} X | >{\centering\arraybackslash} X | }
+        % \begin{tabularx}{0.8\textwidth}{ | X | X | X | X | }
+        \hline
+        % \begin{centering}
+        \textbf{p} & \textbf{q} & \textbf{r} & $\mathbf{p \boldsymbol{\lor} \boldsymbol{(\neg} q \boldsymbol{\land} r\boldsymbol{)}}$ \\ [1ex]
+        % {\boldmath p} & {\boldmath q} & {\boldmath r} & {\boldmath p \lor (\neg q \land r)} 
+        % \bold
+        % \end{centering}
+        \hline
+        T & T & T & T \\
+        \hline
+        T & T & F & T \\
+        \hline 
+        T & F & T & T \\
+        \hline
+        T & F & F & T \\
+        \hline
+        F & T & T & F \\
+        \hline
+        F & T & F & F \\
+        \hline
+        F & F & T & T \\
+        \hline
+        F & F & F & F \\
+        \hline
+        \end{tabularx}
+    \end{center}
+    \item Find correct logical expression for truth table
+    
+    $\neg p \lor \neg q$
+    
+    \begin{center}
+        \begin{tabularx}{0.8\textwidth}{| Y | Y | Y |}
+        \hline
+        \textbf{p} & \textbf{q} & \textbf{?} \\ [1ex]
+        \hline
+        F & F & T \\
+        \hline
+        F & T & T \\
+        \hline
+        T & F & T \\
+        \hline
+        T & T & F \\
+        \hline
+        \end{tabularx}
+    \end{center}
+\end{enumerate}
+
+\bigskip
+
+%-------------------------------------------------------
+
+\section{Translate Math To English}
+\textbf{Propositions:}
+\begin{itemize}
+    \item p: It was below freezing
+    \item q: it was snowing
+    \item r: the road was closed
+\end{itemize}
+\textbf{Problems:}
+\begin{enumerate}
+\boldmath
+    \item $q \boldsymbol{\implies} p$ If it was snowing, then the road was closed. \\
+    \item $p \land q$ It was below freezing and it was snowing. \\
+    \item $\neg(p \land r)$ It was not below freezing and the road was not closed. \\
+    \item \textbf{$r \implies (p \lor q)$} If the road was closed, it was either below freezing or snowing. \\
+    \item \textbf{$r \iff (p \land q)$} The road was closed if and only if it was below freezing and snowing. \\
+\unboldmath
+\end{enumerate}
+
+\bigskip
+
+%-----------------------------------------------------------
+
+\section{Translate English To Math}
+\textbf{Propositions:}
+\begin{itemize}
+    \item p: The application has passed the learner permit test.
+    \item q: The applicant has passed the road test.
+    \item r: The applicant is allowed a driver's licence.
+\end{itemize}
+\textbf{Problems:}
+\begin{enumerate}\bfseries
+    \item The applicant did not pass the road test but passed the learner permit test. $\neg q \land p$ \\
+    \item If the applicant passes the learner permit test and the road test, then the applicant is allowed a driver's license. $(p \land q) \implies r$ \\
+    \item Passing the learner permit test and the road test are necessary for being allowed a driver's license. $(p \land q) \implies r$ \\
+    \item The applicant passed either the learner permit test or the road test, but not both $p \oplus q$ \\
+    \item It is not true that the applicant does not pass the road test and is allowed a driver's license. $\neg(\neg q \implies r)$
+\end{enumerate}
+
+\bigskip
+
+%---------------------------------------------------------
+
+\section{Tautology, Contingency, or Contradiction?}
+\textbf{What is \boldmath $(p \land q) \implies q$}? \unboldmath\\
+\begin{center}
+\begin{tabularx}{0.8\textwidth}{| Y | Y | Y |}
+    \hline
+    \textbf{\textit{p}} & \textbf{\textit{q}} & \boldmath $(p \land q) \implies q$ \unboldmath \\ [1ex]
+    \hline
+    T & T & T \\
+    \hline
+    T & F & T \\
+    \hline
+    F & T & T \\
+    \hline
+    F & F & T \\
+    \hline
+\end{tabularx}
+\end{center}
+$(p \land q) \implies q$ is a tautology, as it always results in T. \\
+
+\bigskip 
+
+%-----------------------------------------------------------
+
+\section{Extra Credit: Equivalence Laws}
+Show $\neg(\neg p \land q) \land (p \lor q)$ is logically equivalent to $p$. \\
+\begin{tabularx}{0.4\textwidth}{X X}
+$\neg(\neg p \land q) \land (p \lor q)$ & Hypothesis \\
+$(p \lor \neg q) \land (p \lor q)$ & De Morgan's Law \\
+$p \land p$ & Absorption Law \\
+$p$ & Idempotent Law
+% $(\neg q \land p) \land (p \lor q)$ & Commutative Law \\
+% $\neg q \land (p \land p) \lor q$ & Associative Law \\
+% $\neg q \land p \lor q$ & Idempotent Law \\
+% $\neg q \lor q \land p$ & Commutative Law \\
+% $T \land p$ & Negation Law \\
+% $p$ & Identity Law \\
+\end{tabularx}
+
+\bigskip
+
+Show $\neg(p \lor \neg(p \land q))$ is logically equivalent to $F$. \\
+\begin{tabularx}{0.4\textwidth}{X X}
+$\neg(p \lor \neg(p \land q))$ & Hypothesis \\
+$\neg(p \lor (\neg p \lor \neg q))$ & De Morgan's Law \\
+$\neg p \land (p \land q)$ & De Morgan's Law \\
+$(\neg p \land p) \land q$ & Associative Law \\
+$F \land q$ & Negation Law \\
+$F$ & Domination Law
+% $(\neg p \land p) \land (\neg p \land q)$ & Distributive Law \\
+% $F \land (\neg p \land q)$ & Negation Law \\
+% $(F \land \neg p) \land (F \land q)$ & Distributive Law \\
+% $F \land F$ & Domination Law \\
+% $F$
+% $\neg p \lor q$ & Identity Laws \\
+% $p \implies q$ & Conditional Identity
+\end{tabularx}
+
+\end{document}

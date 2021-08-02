@@ -1,0 +1,171 @@
+\documentclass[a4paper]{article} 
+\usepackage[inline]{enumitem}
+\input{head}
+\begin{document}
+
+%-------------------------------
+%	TITLE SECTION
+%-------------------------------
+
+\fancyhead[C]{}
+\hrule \medskip % Upper rule
+\begin{minipage}{0.295\textwidth} 
+\raggedright
+\footnotesize
+Winston Peng \hfill\\   
+50364686 \hfill\\
+wpeng2@buffalo.edu
+\end{minipage}
+\begin{minipage}{0.4\textwidth} 
+\centering 
+\large 
+Homework 5\\ 
+\normalsize 
+Intro To Discrete Structures, 2021\\ 
+\end{minipage}
+\begin{minipage}{0.295\textwidth} 
+\raggedleft
+\today\hfill\\
+\end{minipage}
+\medskip\hrule 
+\bigskip
+
+\section{Recurrence Relations (4 x 2 pts)}
+\begin{enumerate}
+    \item \textbf{A person deposits \$5000 in a bank account that yields 7\% interest compounded annually.}
+    \begin{enumerate}
+        \item \textbf{Set up a recurrence relation for the amount in the account at the end of \textit{n} years.}\\
+        \boldmath $a_0 = $ \unboldmath $5000$\\
+        \boldmath $a_n = $ \unboldmath $a_{n-1} * 1.07$
+        \item \textbf{How much money will the account contain after 7 years? Show your calculation.}\\
+        $a_0 = 5000$\\
+        $a_1 = a_0 * 1.07 = 5000 * 1.07 = 5350$ \\
+        $a_2 = a_1 * 1.07 = 5350 * 1.07 = 5724.5$ \\
+        $a_3 = a_2 * 1.07 = 5724.5 * 1.07 = 6125.22$ \\
+        $a_4 = a_3 * 1.07 = 6125.22 * 1.07 = 6553.99$ \\
+        $a_5 = a_4 * 1.07 = 6553.99 * 1.07 = 7012.77$ \\
+        $a_6 = a_5 * 1.07 = 7012.77 * 1.07 = 7503.66$ \\
+        $a_7 = a_6 * 1.07 = 7503.66 * 1.07 = 8028.92$
+    \end{enumerate}
+    \item \textbf{Suppose that the number of bacteria in a colony doubles every hour.}
+    \begin{enumerate}
+        \item \textbf{Set up a recurrence relation for the number of bacteria after \textit{n} hours have elapsed.}\\
+        \boldmath $a_n = $ \unboldmath $a_{n - 1} * 2$
+        \item \textbf{If 150 bacteria are used to begin a new colony, how many bacteria will be in the colony in 6 hours? Show your calculation.}\\
+        $a_0 = 150$\\
+        $a_1 = a_0 * 2 = 150 * 2 = 300$\\
+        $a_2 = a_1 * 2 = 300 * 2 = 600$\\
+        $a_3 = a_2 * 2 = 600 * 2 = 1200$\\
+        $a_4 = a_3 * 2 = 1200 * 2 = 2400$\\
+        $a_5 = a_4 * 2 = 2400 * 2 = 4800$\\
+        $a_6 = a_5 * 2 = 4800 * 2 = 9600$\\
+    \end{enumerate}
+\end{enumerate}
+
+\bigskip %--------------------------
+
+\section{Mathematical Induction (10 pts)}
+\boldmath {\large \textbf{Prove for every positive integer \textit{n}, $1^3 + 2^3 + 3^3 + ... + n^3 = \frac{n^2(n+1)^2}{4}$ is true}} \unboldmath \\
+P(n): $\sum_{i=1}^n i^3 = \frac{n^2(n+1)^2}{4}$\\
+
+\textbf{\ul{Basis Step:}}\\
+Goal: P(1) is true.\\
+Case n = 1: $\sum_{i=1}^1 i^3 = 1$\\
+$\frac{n^2(n+1)^2}{4} = \frac{1^2(1+1)^2}{4} = 1$\\
+Therefore, P(1) is true.\\
+
+\textbf{\ul{Inductive Step:}}\\
+Goal: $\forall k \ge 1$, (P$(k) \implies $P$(k+1))$ is true. Let $k \ge 1$ \\
+
+\ul{\textbf{Inductive Hypothesis:}} 
+Assume that P(\textit{k}) is true for an arbitrary integer \textit{k} with $k \ge 1$
+\begin{center} 
+$P(k): \sum_{i=1}^k i^3 = 1^3 + 2^3 + ... + k^3 = \frac{k^2(k+1)^2}{4}$
+\end{center}
+    Under this assumption, we must show that p(k + 1) is true.
+\begin{center}
+    $P(k + 1): \sum_{i=1}^{k+1} i^3 = \frac{(k + 1)^2(k + 2)^2}{4}$
+\end{center}
+$\sum_{i=1}^{k+1} i^3 = \sum_{i=1}^{k} i^3 + (k + 1)^3 = 
+\frac{k^2(k + 1)^2}{4} + (k + 1)^3 = \frac{(k + 1)^2(k + 2)^2}{4}$\\
+This shows that $P(k + 1)$ is true when $P(k)$ is true, therefore by principle of mathematical induction, for all $n \ge 1$, $P(n)$ is true.\\
+
+% \frac{k^2(k + 1)^2 + 4(k + 1)^3}{4} = 
+% \frac{k^2(2k^2 + 2k + 1) + 4(k^3 + 3k^2 + 3k + 1^3)}{4} = 
+% \frac{2k^4 + k^22k + k^2 + 4k^3 + 12k^2 + 12k + 4}{4}$\\
+
+\bigskip %------------------------------------------
+
+\section{Strong Induction (10 pts)}
+\ul{\textbf{Given:}} $a_0 = 0,\: a_1 = 4,\: a_n = 6a_{n - 1} - 5a_{n - 2}$ for $n \ge 2$\\
+\ul{\textbf{Prove:}} $P(n): a_n = 5^n - 1$ for all $n \ge 0$\\
+
+\ul{\textbf{Basis Step:}}\\
+$P(0): a_0 = 0$,\quad $5^0 - 1 = 0$
+$P(1): a_1 = 4$,\quad $5^1 - 1 = 4$
+$P(0)$ and $P(1)$ are true.\\
+
+\ul{\textbf{Inductive Step:}}\\
+We must show that if P(i) is true for $0 \le i \le k$, where $k \ge 1$, then $P(k + 1)$ is true.\\
+
+\ul{\textbf{Inductive Hypothesis:}} Let $k \ge 1$.\\
+Assume $k \ge 1$ and P(i) is true for $0 \le i \le k$, where $k \le 1$ are true.
+\begin{center}
+    $P(k): a_k = 6a_{k - 1} - 5a_{k - 2}$
+\end{center}
+Assuming P(k), we must show P(k + 1).
+\begin{center}
+    $P(k + 1): a_{k + 1} = 5^{k + 1} - 1$
+\end{center}
+$a_{k + 1} = 6a_{k} - 5a_{k - 1}$, By recurrence relation\\
+$a_{k + 1} = 6(5^k - 1) - 5(5^{k - 1} - 1)$, By inductive hypothesis\\
+$a_{k + 1} = 5^{k + 1} - 1$\\
+Therefore, $P(k + 1)$ is true when $P(i)$ is true for $0 \le i k$, where $k \le 1$, and the proof of the inductive step is complete.
+% $a_{k + 1} = 6(6a_{k - 1} - 5a_{k - 2}) - 5(6a_{k - 2} - 5a_{k - 3}) =$
+
+\section{Combinations and Permutations (10pts + 2pts Extra Credit)}
+\begin{enumerate}
+    \item \textbf{You want to make 4-letter codes using only the uppercase English letters. How many of these codes have no two consecutive letters the same?}\\
+    $26 * 25 * 25 * 25 = 406250$
+    \item \textbf{Consider the following sets of characters that you can use to make a password.}
+    
+    \textbf{Letters = \{b, q, s v, x\}} \\
+    \textbf{Digits = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}}\\
+    \textbf{Specials = \{\#, \&, @, \$, *\}}
+    
+    \textbf{The passwords can be of length 6, 7, or 8. The first character cannot be a digit. How many passwords are there?}\\
+    6 digit password: $10 * 20 * 20 * 20 * 20 * 20 = 32000000$\\
+    7 digit password: $10 * 20 * 20 * 20 * 20 * 20 * 20 = 640000000$\\
+    8 digit password: $10 * 20 * 20 * 20 * 20 * 20 * 20 * 20 = 12800000000$\\
+    Total: 13472000000
+    \item \textbf{Phone numbers are 7 digits long and start with either 716 or 718. How many different phone numbers are there in which the last four digits are all different?}\\
+    $2 * 10 * 9 * 8 * 7 = 10080$
+    \item \textbf{Bob has 5 hw assignments but can only do 3. How many ways can he choose 3?}\\
+    $5 * 4 * 3 = 60$
+    \item \textbf{Show that if 6 integers are chosen at random, at least two nums will have the same remainder when divided by 5. Use pigeonhole principle.}\\
+    There are 6 integers, 6 - 1 = 5. Therefore, it stands to reason that two numbers that will have the same remainder when divided by five, as there are only 5 possible remainders of 5.
+    \item \textbf{How many unordered selections of three elements can be made from the set \{a, b, c, d, e, f\}?}\\
+    $6^3 = 216$
+\end{enumerate}
+
+\bigskip %-----------------------------
+
+\section{Isomorphic (6pts = 3 x 2)}
+\begin{enumerate}
+    \item The graphs are isomorphic as the number of edges and vertices for the two graphs are identical.
+    \item The graphs are not isomorphic as the vertices do not have the same degree between the two graphs.
+\end{enumerate}
+
+\bigskip %------------------------------
+
+\section{Graphs (10pts = 2 x 5(+ 4 points extra)}
+\begin{enumerate}
+    \item Walk
+    \item Walk, Circuit, Cycle
+    \item Walk, Trail
+    \item Walk
+    \item Walk, Trail, Path
+    \item Not walk
+    \item Walk, Circuit
+\end{enumerate}
+\end{document}
